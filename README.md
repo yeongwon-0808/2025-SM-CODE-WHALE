@@ -1,15 +1,13 @@
-# 🐳 CODE 동아리 웹 프로젝트 – Whale Team
+# 💙 CODE 동아리 웹 프로젝트 – Whale Team
 
-## 소개
-우리는 깊이와 완성도를 중시하는 고래팀입니다!
+## ✍️ 연습 영역 (학생 개별 수정 연습)
 
-## 목표
-- 구조 중심 설계
-- 코드 퀄리티 최우선
+| 이름 | 링크 |
+|------|------|
+| student1 | https://juhyeon0906.github.io/2025-SM-CODE-WHALE/students/student1/ |
+| student2 | https://juhyeon0906.github.io/2025-SM-CODE-WHALE/students/student2/ |
+| student3 | https://juhyeon0906.github.io/2025-SM-CODE-WHALE/students/student3/ |
+| student4 | https://juhyeon0906.github.io/2025-SM-CODE-WHALE/students/student4/ |
+| student5 | https://juhyeon0906.github.io/2025-SM-CODE-WHALE/students/student5/ |
 
-## 기술 스택
-HTML, CSS, JS, Git, Vercel
-
-## 규칙
-- 브랜치 기반 개발
-- 리뷰 기반 병합
+각자 폴더 내부의 index.html, style.css 파일을 수정하여 연습하세요!

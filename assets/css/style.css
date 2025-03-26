@@ -1,4 +1,45 @@
-body { font-family: sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #1976D2; }
-header, nav, footer { padding: 1rem; background-color: #E3F2FD; color: #1976D2; text-align: center; }
-nav a { margin: 0 1rem; color: #1976D2; text-decoration: none; }
-main { padding: 2rem; }
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #E3F2FD;
+  color: #1976D2;
+}
+header, nav, footer {
+  padding: 1rem;
+  background-color: #FFFFFF;
+  color: #1976D2;
+  text-align: center;
+}
+nav a {
+  margin: 0 1rem;
+  color: #1976D2;
+  text-decoration: none;
+}
+main {
+  padding: 2rem;
+}
+#practice h2 {
+  text-align: center;
+}
+.student-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.student-links li a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #1976D2;
+  color: white;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.student-links li a:hover {
+  background-color: #0D47A1;
+}
