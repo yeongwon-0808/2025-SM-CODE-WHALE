@@ -1,19 +1,93 @@
-const express = require('express');
-const cors = require('cors');
-const shuttleRoutes = require('./routes/shuttle');
-const eventsRoutes = require('./routes/events');
-const timetableRoutes = require('./routes/timetable');
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
-const app = express();
-const PORT = 3001;
+export default function StudentPortal() {
+  return (
+    <div className="p-6 max-w-5xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6">🎓 학생 포털</h1>
+      <Tabs defaultValue="shuttle" className="w-full">
+        <TabsList className="mb-4">
+          <TabsTrigger value="shuttle">🚌 셔틀버스</TabsTrigger>
+          <TabsTrigger value="schedule">📅 시간표 및 학사일정</TabsTrigger>
+          <TabsTrigger value="events">🎉 학교 행사</TabsTrigger>
+        </TabsList>
 
-app.use(cors());
-app.use(express.json());
+        {/* 셔틀버스 정보 */}
+        <TabsContent value="shuttle">
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-xl font-semibold mb-2">셔틀버스 시간표</h2>
+              <ul className="list-disc list-inside space-y-1">
+                <li>08:00 - 정문 출발</li>
+                <li>09:30 - 후문 출발</li>
+                <li>12:00 - 기숙사 출발</li>
+                <li>17:00 - 캠퍼스 순환</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-app.use('/api/shuttle', shuttleRoutes);
-app.use('/api/events', eventsRoutes);
-app.use('/api/timetable', timetableRoutes);
+        {/* 시간표 및 학사일정 */}
+        <TabsContent value="schedule">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <div>
+                <h2 className="text-xl font-semibold mb-2">수업 시간표</h2>
+                <ul className="list-disc list-inside">
+                  <li>월요일: 컴퓨터공학 / 수학</li>
+                  <li>화요일: 영어 / 프로그래밍</li>
+                  <li>수요일: 데이터베이스 / 자율학습</li>
+                  <li>목요일: 소프트웨어 공학 / 체육</li>
+                  <li>금요일: 프로젝트 실습</li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold mb-2">학사일정</h2>
+                <ul className="list-disc list-inside">
+                  <li>중간고사: 4월 15일 ~ 4월 19일</li>
+                  <li>기말고사: 6월 10일 ~ 6월 14일</li>
+                  <li>공휴일: 5월 5일 (어린이날), 6월 6일 (현충일)</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-app.listen(PORT, () => {
-  console.log(`🛰️ Server running at http://localhost:${PORT}`);
-});
+        {/* 학교 행사 */}
+        <TabsContent value="events">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <div>
+                <h2 className="text-xl font-semibold mb-2">다가오는 행사</h2>
+                <ul className="list-disc list-inside">
+                  <li>5월 10일 - 봄 축제</li>
+                  <li>6월 1일 - 동아리 전시회</li>
+                  <li>6월 20일 - 종강파티</li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold mb-2">참가 신청</h2>
+                <form className="space-y-2">
+                  <input
+                    type="text"
+                    placeholder="이름"
+                    className="border rounded p-2 w-full"
+                  />
+                  <select className="border rounded p-2 w-full">
+                    <option>참가할 행사 선택</option>
+                    <option>봄 축제</option>
+                    <option>동아리 전시회</option>
+                    <option>종강파티</option>
+                  </select>
+                  <Button type="submit">신청하기</Button>
+                </form>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
