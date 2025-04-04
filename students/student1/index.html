@@ -1,13 +1,70 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>student1 연습 페이지</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>student1의 연습 페이지입니다!</h1>
-  <p>이 파일을 자유롭게 수정해보세요.</p>
-</body>
-</html>
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function StudentPortal() {
+  const [busSchedule, setBusSchedule] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [timetable, setTimetable] = useState([]);
+
+  useEffect(() => {
+    // 예제 데이터 (실제 구현 시 API 연결 필요)
+    setBusSchedule([
+      { route: "A", time: "08:00 AM", status: "On Time" },
+      { route: "B", time: "08:15 AM", status: "Delayed" },
+    ]);
+
+    setEvents([
+      { name: "School Festival", date: "2025-05-10" },
+      { name: "Sports Day", date: "2025-06-15" },
+    ]);
+
+    setTimetable([
+      { subject: "Math", time: "09:00 AM - 10:30 AM" },
+      { subject: "English", time: "10:45 AM - 12:15 PM" },
+    ]);
+  }, []);
+
+  return (
+    <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-bold">🚍 셔틀버스 일정</h2>
+          <ul>
+            {busSchedule.map((bus, index) => (
+              <li key={index}>
+                {bus.route} - {bus.time} ({bus.status})
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-bold">📅 학사 일정</h2>
+          <ul>
+            {timetable.map((classItem, index) => (
+              <li key={index}>
+                {classItem.subject}: {classItem.time}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <h2 className="text-xl font-bold">🎉 학교 행사</h2>
+          <ul>
+            {events.map((event, index) => (
+              <li key={index}>
+                {event.name} - {event.date}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
